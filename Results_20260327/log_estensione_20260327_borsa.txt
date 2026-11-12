@@ -1,0 +1,74 @@
+ESTENSIONE 2026-03-27  |  file 20260327SPX_merged.csv  |  scadenze corte richieste [5 7 11] giorni  |  tempo borsa
+Caricamento dati...
+Scadenze corte aggiunte: [5 6 11] giorni
+Tempo di borsa: scadenze in giorni di borsa [3 4 6 9 20 64 128 192 252 434]
+Scadenze del campione esteso: [0.0119 0.01587 0.02381 0.03571 0.07937 0.254 0.5079 0.7619 1 1.722]
+
+T        giorni sqrt(Kvar) IV ATM    
+0.0119   4      29.97      28.92     
+0.0159   6      29.82      28.44     
+0.0238   9      32.90      29.93     
+0.0357   13     32.19      28.58     
+0.0794   29     30.63      26.61     
+0.2540   93     28.26      23.80     
+0.5079   185    26.39      22.66     
+0.7619   278    25.34      22.19     
+1.0000   365    24.76      21.77     
+1.7222   629    23.48      20.95     
+
+Campione esteso: 150 quote (45 sulle scadenze corte)
+
+=== Heston-curve-kappa ===
+Parametri della tesi sul campione esteso: RMSE 5.933% (corte 7.833%, standard 4.898%)
+  partenza 1: loss fast 4.37439e-01  [7.887 1.995 -0.8132]
+  partenza 2: loss fast 4.37439e-01  [7.887 1.995 -0.8132]
+  partenza 3: loss fast 4.37439e-01  [7.887 1.995 -0.8132]
+Ricalibrato: [7.857 1.994 -0.8131]
+RMSE 5.955% (corte 7.898%, standard 4.892%)   loss exact 4.36469e-01   [121 s]
+
+=== rough Heston ===
+Parametri della tesi sul campione esteso: RMSE 9.474% (corte 14.841%, standard 5.816%)
+  partenza 1: loss fast 8.88716e-01  [0.07988 0.3118 -0.8363]
+  partenza 2: loss fast 8.88716e-01  [0.07988 0.3118 -0.8363]
+  partenza 3: loss fast 8.88716e-01  [0.07988 0.3118 -0.8363]
+Ricalibrato: [0.08023 0.3123 -0.8362]
+RMSE 8.561% (corte 11.327%, standard 7.051%)   loss exact 8.84550e-01   [325 s]
+
+=== rough Heston-kappa ===
+Parametri della tesi sul campione esteso: RMSE 6.529% (corte 9.450%, standard 4.757%)
+  partenza 1: loss fast 4.37379e-01  [0.5 1.994 -0.8133 7.886]
+  partenza 2: loss fast 4.37379e-01  [0.5 1.994 -0.8133 7.886]
+  partenza 3: loss fast 4.37379e-01  [0.5 1.994 -0.8133 7.886]
+Ricalibrato: [0.5 1.994 -0.8131 7.857]
+RMSE 5.955% (corte 7.898%, standard 4.892%)   loss exact 4.36465e-01   [2339 s]
+  ATTENZIONE: parametri al bound: 1
+
+=== rough Hawkes Heston ===
+Parametri della tesi sul campione esteso: RMSE 6.322% (corte 10.309%, standard 3.398%)
+  partenza 1: loss fast 1.99716e-01  [0.995 -4.068 1.62 -0.8137 0.3284 0.08739 0.2334]
+Ricalibrato: [0.995 -4.075 1.624 -0.8113 0.3305 0.08735 0.2342]
+RMSE 4.021% (corte 4.975%, standard 3.534%)   loss exact 1.99444e-01   [4723 s]
+  ATTENZIONE: parametri al bound: 1
+
+=== Skew ATM sotto le due settimane (modelli ricalibrati) ===
+Mercato: pendenza 0.063  rapporto psi(1g)/psi(13g) = 1.16
+Heston-curve-kappa     pendenza -0.108  rapporto 1.12  errore log 0.559
+rough Heston           pendenza -0.492  rapporto 2.68  errore log 0.872
+rough Heston-kappa     pendenza -0.108  rapporto 1.12  errore log 0.559
+rough Hawkes Heston    pendenza -0.004  rapporto 1.01  errore log 0.329
+
+================ RIEPILOGO ================
+Modello                tesi (7 scadenze)                  esteso (con le corte)             
+Heston-curve-kappa     [7.79 1.97 -0.813]                 [7.86 1.99 -0.813]                
+                       RMSE campione esteso: 5.933% -> 5.955%   (corte 7.833% -> 7.898%)
+rough Heston           [0.005 0.296 -0.827]               [0.0802 0.312 -0.836]             
+                       RMSE campione esteso: 9.474% -> 8.561%   (corte 14.841% -> 11.327%)
+rough Heston-kappa     [0.385 1.35 -0.81 4.81]            [0.5 1.99 -0.813 7.86]            
+                       RMSE campione esteso: 6.529% -> 5.955%   (corte 9.450% -> 7.898%)
+rough Hawkes Heston    [0.845 -1.99 0.635 -0.846 0.268 0.0842 0.117] [0.995 -4.07 1.62 -0.811 0.331 0.0873 0.234]
+                       RMSE campione esteso: 6.322% -> 4.021%   (corte 10.309% -> 4.975%)
+Calibrazione standard (7 scadenze): rough Heston-kappa H = 0.385, kappa = 4.814
+Esteso:                         rough Heston-kappa H = 0.500, kappa = 7.857
+
+Scritti <repo>\Results_20260327\estensione_20260327_borsa.mat, <repo>\Figure_20260327\fig_estensione_borsa.pdf e <repo>\Figure_20260327\tab_estensione_borsa.tex
+Elapsed time is 7654.617138 seconds.

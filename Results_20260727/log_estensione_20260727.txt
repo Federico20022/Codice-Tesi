@@ -1,0 +1,82 @@
+ESTENSIONE 2026-07-27  |  file 20260727SPX_merged.csv  |  scadenze corte richieste [5 7 11] giorni
+Caricamento dati...
+Scadenze corte aggiunte: [4 7 11] giorni
+Scadenze del campione esteso: [0.01096 0.01918 0.03014 0.03836 0.08219 0.2603 0.4712 0.7205 0.9699 1.392]
+
+T        giorni sqrt(Kvar) IV ATM    
+0.0110   4      19.49      18.63     
+0.0192   7      16.49      15.57     
+0.0301   11     17.74      15.87     
+0.0384   14     16.83      14.84     
+0.0822   30     18.04      14.82     
+0.2603   95     19.58      15.45     
+0.4712   172    20.05      15.88     
+0.7205   263    20.57      16.71     
+0.9699   354    20.87      17.31     
+1.3918   508    21.20      18.06     
+
+Campione esteso: 150 quote (45 sulle scadenze corte)
+
+=== Heston-curve-kappa ===
+Parametri della tesi sul campione esteso: RMSE 5.111% (corte 6.252%, standard 4.534%)
+  partenza 1: loss fast 3.91141e-01  [5.653 1.404 -0.7883]
+  partenza 2: loss fast 3.91141e-01  [5.653 1.404 -0.7883]
+  partenza 3: loss fast 3.91141e-01  [5.653 1.404 -0.7883]
+Ricalibrato: [5.792 1.472 -0.7786]
+RMSE 5.190% (corte 5.803%, standard 4.904%)   loss exact 3.65191e-01   [139 s]
+
+=== rough Heston ===
+Parametri della tesi sul campione esteso: RMSE 6.802% (corte 10.347%, standard 4.497%)
+  partenza 1: loss fast 4.10398e-01  [0.1744 0.3586 -0.7669]
+  partenza 2: loss fast 4.10398e-01  [0.1744 0.3586 -0.7669]
+  partenza 3: loss fast 4.10398e-01  [0.1744 0.3586 -0.7669]
+Ricalibrato: [0.1741 0.3581 -0.7676]
+RMSE 5.237% (corte 5.413%, standard 5.160%)   loss exact 4.13898e-01   [265 s]
+
+=== rough Heston-kappa ===
+Parametri della tesi sul campione esteso: RMSE 5.559% (corte 7.705%, standard 4.324%)
+  partenza 1: loss fast 3.35845e-01  [0.3619 0.8162 -0.7735 2.316]
+  partenza 2: loss fast 3.35845e-01  [0.3618 0.8161 -0.7735 2.315]
+  partenza 3: loss fast 3.35845e-01  [0.3619 0.8162 -0.7735 2.316]
+Ricalibrato: [0.376 0.8758 -0.7719 2.597]
+RMSE 4.924% (corte 5.424%, standard 4.693%)   loss exact 3.34873e-01   [4019 s]
+
+=== rough Hawkes Heston ===
+Parametri della tesi sul campione esteso: RMSE 5.467% (corte 9.702%, standard 1.536%)
+  partenza 1: loss fast 2.96482e-01  [0.8502 -1.627 0.5113 -0.7907 0.2412 0.02655 0.1131]
+Ricalibrato: [0.8468 -1.586 0.4976 -0.7889 0.2448 0.02652 0.1115]
+RMSE 4.643% (corte 7.609%, standard 2.447%)   loss exact 2.97708e-01   [2957 s]
+
+=== Profilo in H, kappa libero, campione esteso ===
+H=0.35  nu=0.7779  rho=-0.7726  kappa=2.1155  RMSE=4.938%  (corte 5.342%)
+H=0.30  nu=0.6345  rho=-0.7694  kappa=1.3832  RMSE=4.947%  (corte 5.363%)
+H=0.25  nu=0.5166  rho=-0.7668  kappa=0.8045  RMSE=5.016%  (corte 5.450%)
+H=0.20  nu=0.4199  rho=-0.7647  kappa=0.3491  RMSE=5.141%  (corte 5.604%)
+H=0.15  nu=0.3413  rho=-0.7631  kappa=0.0000  RMSE=5.316%  (corte 5.836%)
+H=0.10  nu=0.3009  rho=-0.7594  kappa=0.0000  RMSE=5.747%  (corte 6.928%)
+H=0.05  nu=0.2672  rho=-0.7557  kappa=0.0000  RMSE=6.494%  (corte 8.286%)
+H=0.40  nu=0.9515  rho=-0.7766  kappa=3.0391  RMSE=4.998%  (corte 5.391%)
+H=0.50  nu=1.4038  rho=-0.7883  kappa=5.6524  RMSE=5.366%  (corte 5.712%)
+
+=== Skew ATM sotto le due settimane (modelli ricalibrati) ===
+Mercato: pendenza -0.311  rapporto psi(2g)/psi(14g) = 1.85
+Heston-curve-kappa     pendenza 0.146  rapporto 0.66  errore log 0.389
+rough Heston           pendenza -0.241  rapporto 1.40  errore log 0.200
+rough Heston-kappa     pendenza -0.031  rapporto 0.92  errore log 0.283
+rough Hawkes Heston    pendenza -0.193  rapporto 1.46  errore log 0.077
+
+================ RIEPILOGO ================
+Modello                tesi (7 scadenze)                  esteso (con le corte)             
+Heston-curve-kappa     [6.27 1.62 -0.76]                  [5.79 1.47 -0.779]                
+                       RMSE campione esteso: 5.111% -> 5.190%   (corte 6.252% -> 5.803%)
+rough Heston           [0.0651 0.326 -0.747]              [0.174 0.358 -0.768]              
+                       RMSE campione esteso: 6.802% -> 5.237%   (corte 10.347% -> 5.413%)
+rough Heston-kappa     [0.297 0.802 -0.749 2.14]          [0.376 0.876 -0.772 2.6]          
+                       RMSE campione esteso: 5.559% -> 4.924%   (corte 7.705% -> 5.424%)
+rough Hawkes Heston    [0.798 -0.969 0.342 -0.748 0.375 0.0239 0.0878] [0.847 -1.59 0.498 -0.789 0.245 0.0265 0.111]
+                       RMSE campione esteso: 5.467% -> 4.643%   (corte 9.702% -> 7.609%)
+Calibrazione standard (7 scadenze): rough Heston-kappa H = 0.297, kappa = 2.138
+Esteso:                         rough Heston-kappa H = 0.376, kappa = 2.597
+
+Scritti <repo>\Results_20260727\estensione_20260727.mat, <repo>\Figure_20260727\fig_estensione.pdf e <repo>\Figure_20260727\tab_estensione.tex
+Elapsed time is 13657.581515 seconds.

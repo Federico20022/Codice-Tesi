@@ -1,0 +1,91 @@
+RIEPILOGO 2026-07-27   (file 20260727SPX_merged.csv, scritto 15-Oct-2026 23:02:54)
+========================================================================
+
+MERCATO
+  spot (feed)         7413.18
+  scadenze (giorni)       14     30     95    172    263    354    508
+  sqrt(Kvar) (%)       16.83  18.04  19.58  20.05  20.57  20.87  21.20
+  pendenza sqrt(Kvar) ultima - prima: +4.37 punti di vol
+
+ERRORI DI CALIBRAZIONE (Tab. 6.2 e 6.3)
+  modello                       param   RMSE rel %   RMSE abs %   parametri
+  Heston                            5        2.509        0.412   [3.335 0.05848 1.275 0.02392 -0.7539]
+  Heston-curve                      2       12.210        1.928   [0.7654 -0.7938]
+  Heston-curve-kappa                3        4.291        0.824   [6.273 1.622 -0.7598]
+  rough Heston                      3        4.074        0.789   [0.06508 0.3255 -0.7471]
+  rough Heston-kappa                4        3.931        0.777   [0.297 0.8022 -0.7488 2.138]
+  CGMY                              3        6.222        1.174   [0.01669 0.05 64.77 1.49]
+  rough Heston + CGMY               6        3.758        0.760   [0.1022 0.338 -0.7427 0.001147 0.05 200 1.6]
+  rough Heston-kappa + CGMY         7        3.599        0.757   [0.3728 0.939 -0.7444 0.001165 0.05 200 1.584 2.767]
+  rough Hawkes Heston               7        1.536        0.247   [0.7983 -0.9694 0.3423 -0.7483 0.3753 0.02388 0.0878]
+  classifica: rough Hawkes Heston < Heston < rough Heston-kappa + CGMY < rough Heston + CGMY < rough Heston-kappa < rough Heston < Heston-curve-kappa < CGMY < Heston-curve
+
+RUVIDEZZA, MEAN REVERSION E SALTI
+  H rough Heston (kappa = 0)              0.0651
+  H, kappa rough Heston-kappa             0.2970, 2.138
+  kappa Heston-curve-kappa                6.273
+  H composto, H composto-kappa            0.1022, 0.3728  (kappa 2.767)
+  H_eff rough Hawkes Heston, b            0.2983, -0.969
+  riduzione da ruvidezza, kappa = 0        66.6%   (Heston-curve -> rough Heston)
+  riduzione da mean reversion, H = 1/2     64.9%   (Heston-curve -> Heston-curve-kappa)
+  riduzione da ruvidezza, kappa libero      8.4%   (Heston-curve-kappa -> rough Heston-kappa)
+  riduzione da kappa sopra la ruvidezza     3.5%   (rough Heston -> rough Heston-kappa)
+  riduzione dai salti, kappa = 0            7.8%   (H si sposta di +0.0371)
+  riduzione dai salti, kappa libero         8.5%   (H si sposta di +0.0758)
+  quota QV dei salti a 1 anno: composto 18.3%, composto-kappa 18.5%, rHH 22.0%
+  VS/L della sola componente di salto: composto 1.906, composto-kappa 1.957
+
+PROFILO IN H CON KAPPA LIBERO (Tab. 6.4, destra)
+       H       nu      rho    kappa     RMSE %
+    0.05   0.3313  -0.7400   0.0306      4.113
+    0.10   0.3987  -0.7414   0.3100      4.029
+    0.20   0.5711  -0.7448   1.0640      3.929
+    0.30   0.8106  -0.7489   2.1777      3.933
+    0.40   1.1465  -0.7539   3.8252      4.053
+    0.50   1.6224  -0.7598   6.2722      4.291
+
+PROFILO IN KAPPA A H = 1/2 (Tab. 6.4, sinistra)
+   kappa       nu      rho     RMSE %
+     0.0   0.7654  -0.7938     12.210
+     0.5   0.8463  -0.7828     10.488
+     1.0   0.9204  -0.7761      9.125
+     2.0   1.0590  -0.7688      7.121
+     3.0   1.1919  -0.7651      5.787
+     5.0   1.4543  -0.7613      4.476
+     8.0   1.8536  -0.7582      4.477
+    12.0   2.4067  -0.7550      5.473
+    20.0   3.5815  -0.7498      7.143
+    30.0   5.0000  -0.7485      8.364
+
+FUORI CAMPIONE (PricingSuite_Kappa)
+  call T = 0.5, K/F = 1.10: Heston 0.6402  HestonCurveK 0.6268  rHestonK 0.6723  rHK+CGMY 0.6811  rHawkesH 0.6665  rHeston 0.7172  CGMY 0.8856  rH+CGMY 0.7340  
+  digitale T = 0.25, K/F = 1.10: Heston 0.0402  HestonCurveK 0.0442  rHestonK 0.0510  rHK+CGMY 0.0514  rHawkesH 0.0436  rHeston 0.0569  CGMY 0.0656  rH+CGMY 0.0590  
+  pendenza skew su T <= 0.25: Heston -0.249  HestonCurveK -0.343  rHestonK -0.437  rHK+CGMY -0.409  rHawkesH -0.366  rHeston -0.520  CGMY -0.469  rH+CGMY -0.504  
+  spread call (gruppo con kappa / cinque del Cap. 7): 8.7% / 38.3%
+  spread digitale (gruppo con kappa / cinque del Cap. 7): 27.7% / 63.1%
+
+TEST FUORI CAMPIONE (Test_Fuori_Campione)
+  RMSE rel su tutta la superficie filtrata:
+    Heston                          6.08%
+    Heston-curve                   14.83%
+    Heston-curve-\kappa             5.25%
+    rough Heston                    5.36%
+    rough Heston-\kappa             4.85%
+    CGMY                            9.73%
+    rough Heston + CGMY             5.46%
+    rough Heston-\kappa + CGMY      4.75%
+    rough Hawkes Heston             2.54%
+  pendenza log-log dello skew di mercato sotto le due settimane: -0.312 (8 scadenze)
+
+ESITO DEGLI SCRIPT
+  Heston_SPX_20260515_def                 4.1 s   OK
+  Check_Heston_Curve                     24.1 s   OK
+  Heston_Curve_Kappa                    125.2 s   OK
+  rough_heston_def                       69.7 s   OK
+  Rough_Heston_Kappa                   3318.6 s   OK
+  CMGY_def                               14.4 s   OK
+  Rough_Heston_CMGY_def                1117.3 s   OK
+  Rough_Heston_CMGY_Kappa              6634.6 s   OK
+  RoughHawkesHeston_SPX_20260515        806.2 s   OK
+  PricingSuite_Kappa                    344.1 s   OK
+  Test_Fuori_Campione                   339.9 s   OK

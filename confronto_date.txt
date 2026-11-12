@@ -1,0 +1,34 @@
+CONFRONTO FRA LE DATE  (15-Oct-2026 23:02:54)
+================================================================================
+                                    2026-03-27    2026-05-15    2026-07-27    2026-10-14
+spot                                      6369          7501          7413          7704
+sqrt(Kvar) prima scadenza                 31.1          17.4          16.8          14.8
+sqrt(Kvar) a circa 1 anno                 24.6          21.8          20.9          19.8
+RMSE Heston                               3.86          2.90          2.51          3.13
+RMSE Heston-curve                        18.18         10.35         12.21         12.78
+RMSE Heston-curve-kappa                   4.78          3.29          4.29          4.58
+RMSE rough Heston                         5.79          4.01          4.07          4.73
+RMSE rough Heston-kappa                   4.71          3.24          3.93          4.36
+RMSE CGMY                                15.56          5.59          6.22          5.22
+RMSE composto                             5.70          3.76          3.76          3.98
+RMSE composto-kappa                       4.73          3.05          3.60          3.60
+RMSE rough Hawkes Heston                  2.73          2.22          1.54          2.28
+H rough Heston                           0.005         0.087         0.065         0.019
+H composto                               0.005         0.088         0.102         0.005
+H rough Heston-kappa                     0.385         0.418         0.297         0.308
+kappa rough Heston-kappa                  4.81          3.32          2.14          2.76
+kappa Heston-curve-kappa                  7.79          4.92          6.27          6.99
+H composto-kappa                         0.391         0.471         0.373         0.452
+H_eff rough Hawkes Heston                0.345         0.357         0.298         0.278
+riduzione da ruvidezza k=0 %                68            61            67            63
+riduzione da mean reversion %               74            68            65            64
+riduzione da ruvidezza k lib %               2             2             8             5
+riduzione dai salti %                        2             6             8            16
+spostamento di H dai salti              +0.000        +0.002        +0.037        -0.014
+quota QV salti composto %                 21.3          14.6          18.3          22.3
+
+CLASSIFICA PER ERRORE RELATIVO
+  2026-03-27: rough Hawkes Heston < Heston < rough Heston-kappa < rough Heston-kappa + CGMY < Heston-curve-kappa < rough Heston + CGMY < rough Heston < CGMY < Heston-curve
+  2026-05-15: rough Hawkes Heston < Heston < rough Heston-kappa + CGMY < rough Heston-kappa < Heston-curve-kappa < rough Heston + CGMY < rough Heston < CGMY < Heston-curve
+  2026-07-27: rough Hawkes Heston < Heston < rough Heston-kappa + CGMY < rough Heston + CGMY < rough Heston-kappa < rough Heston < Heston-curve-kappa < CGMY < Heston-curve
+  2026-10-14: rough Hawkes Heston < Heston < rough Heston-kappa + CGMY < rough Heston + CGMY < rough Heston-kappa < Heston-curve-kappa < rough Heston < CGMY < Heston-curve
