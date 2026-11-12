@@ -1,0 +1,9 @@
+   Data/*
+   !Data/README.md
+   *.csv
+   *.mat
+   Tmp_*/
+   runall.txt
+   Results_*/log_????????.txt
+   *.asv
+   *.png
